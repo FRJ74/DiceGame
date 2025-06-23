@@ -45,7 +45,17 @@ const rollDice = () => {
     dice.textContent = diceValuesArr[index];
   });
 };
-    // Event listener for the rules button to toggle rules display
+
+let count = 0;
+rollDiceBtn.addEventListener("click", () => {
+  if (count < 3) {
+    alert("Choose a scoree");
+  } else {
+    rollDice();
+    count++;
+  }
+});
+// Event listener for the rules button to toggle rules display
 rulesBtn.addEventListener("click", () => {
   isModalShowing = !isModalShowing;
 
