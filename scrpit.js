@@ -33,17 +33,18 @@ let round = 1;
 let rolls = 0;
 
 // Function to update the score display
-rollDiceBtn.addEventListener("click", () => {
-  // Reset the dice values array for a new roll
-  let count = 0;
+const rollDice = () => {
   diceValuesArr = [];
-  // Loop through each die and update its value
-  while ( diceValuesArr.length < 5 ) {
-    let random = Math.ceil(Math.random() * 6);
-    listOfAllDice[count].textContent = random;
-    count++;
-  }
+
+  for (let i = 0; i < 5; i++) {
+    const randomDice = Math.floor(Math.random() * 6) + 1;
+    diceValuesArr.push(randomDice);
+  };
+
+  listOfAllDice.forEach((dice, index) => {
+    dice.textContent = diceValuesArr[index];
   });
+};
     // Event listener for the rules button to toggle rules display
 rulesBtn.addEventListener("click", () => {
   isModalShowing = !isModalShowing;
