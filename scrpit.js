@@ -30,9 +30,21 @@ let score = 0;
 // Variable to keep track of the current round number
 let round = 1; 
 // Variable to keep track of the number of rolls in the current round
-let rolls = 0; 
+let rolls = 0;
 
-// Event listener for the rules button to toggle rules display
+// Function to update the score display
+rollDiceBtn.addEventListener("click", () => {
+  // Reset the dice values array for a new roll
+  let count = 0;
+  diceValuesArr = [];
+  // Loop through each die and update its value
+  while ( diceValuesArr.length < 5 ) {
+    let random = Math.ceil(Math.random() * 6);
+    listOfAllDice[count].textContent = random;
+    count++;
+  }
+  });
+    // Event listener for the rules button to toggle rules display
 rulesBtn.addEventListener("click", () => {
   isModalShowing = !isModalShowing;
 
